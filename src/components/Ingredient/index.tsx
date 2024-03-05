@@ -8,11 +8,13 @@ export interface IngredientsProps extends PressableProps{
 	selected?: boolean
 }
 
+const IMAGE_PATH = process.env.EXPO_PUBLIC_IMAGE_PATH_STORAGE;
+
 const Ingredient = ({image, name, selected = false, ...rest}: IngredientsProps) => {
 	return(
 		<Pressable style={[styles.container, selected && styles.selected]} {...rest}>
-			<Image style={styles.image}  source={require("@/assets/tomato.png")}/>
-			<Text style={styles.title}>Maça</Text>
+			<Image style={styles.image}  source={{uri: `${IMAGE_PATH}/${image}`}}/>
+			<Text style={styles.title}>{name}</Text>
 		</Pressable>
 	);
 };
