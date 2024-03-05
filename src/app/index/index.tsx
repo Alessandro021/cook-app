@@ -3,8 +3,8 @@ import { View, Text, ScrollView, Alert } from "react-native";
 import { styles } from "./styles";
 import Ingredient from "@/components/Ingredient";
 import { useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import { Selected } from "@/components/Selected";
+import { router } from "expo-router";
 
 
 
@@ -26,9 +26,12 @@ const Index = () => {
 		]);
 		
 	};
+
+	const handleSearch = () => {
+		router.navigate("/recipes/");
+	};
 	return(
 		<View style={styles.container}>
-			<StatusBar style="dark" />
 			<Text style={styles.title}>
                 Escolha {"\n"}
 				<Text style={styles.subtitle}>os produtos</Text></Text>
@@ -42,7 +45,7 @@ const Index = () => {
 				}
 			</ScrollView>
 			{selected.length > 0 && (
-				<Selected quantity={selected.length} onClear={handleClearSelected} onSearch={() => {}}/>
+				<Selected quantity={selected.length} onClear={handleClearSelected} onSearch={handleSearch}/>
 			)}
 		</View>
 	);

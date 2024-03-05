@@ -6,6 +6,7 @@ import {
 	Poppins_700Bold,
 	Poppins_500Medium,
 } from "@expo-google-fonts/poppins";
+import { StatusBar } from "expo-status-bar";
 
 const Layout = () => {
 	const [fontsLoaded] = useFonts({
@@ -17,7 +18,11 @@ const Layout = () => {
 	if(!fontsLoaded){
 		return;
 	} 
-	return fontsLoaded ? <Slot /> : null;
+	return fontsLoaded ? 
+		<>
+			<StatusBar style="dark" />
+			<Slot />
+		</> : null;
 };
 
 export default Layout;
