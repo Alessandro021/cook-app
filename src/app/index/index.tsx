@@ -31,7 +31,7 @@ const Index = () => {
 	};
 
 	const handleSearch = () => {
-		router.navigate("/recipes/");
+		router.navigate("/recipes/" + selected);
 	};
 
 	useEffect(() => {
